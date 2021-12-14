@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+
+{% block body %}
+{% comment %} my-4 {% endcomment %}
+<style>
+    #bookbtn {
+        background-color: rgba(0, 0, 0, 0.904);
+        border: darkgray;
+        
+    } 
+    #bookbtn:hover{
+        background-color: rgb(124, 124, 124);
+    }   
+    </style>
+
+
+<div class="container- fluid px-0">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/1.jfif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h4>Welcome to the place of Wonder</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, rem?</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="/static/2.jfif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h4>Experience the precious blessing of nature</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicingsaki Unde, rem?</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                {% comment %} <img src="https://source.unsplash.com/1200x900/?nature,water" class="d-block w-100" alt="..."> {% endcomment %}
+                <img src="/static/telephone.jfif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h4>Welcome to the place of Wonder</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, rem?</p>
+                </div>
+            </div>
+        </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="d-grid gap-2 col-11 mx-auto">
+        <br>
+        <!-- <button class="btn btn-primary" type="button" id="bookbtn">Book Now</button> -->
+        <a class="btn btn-primary" type="button" id="bookbtn" href='{% url "booKingfunction" %}'>Book Now</a>
+        
+    </div>
+
+    <div class="container my-4">
+        <h1 class="my-3 text-center">Available plans with great offers</h1>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?boy,nature class=" d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?nature,girls" class="d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?boy,water" class="d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?nature,resort" class="d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?water,resort" class="d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/1200x900/?mens,water" class="d-block w-100" alt="...">
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock body %}

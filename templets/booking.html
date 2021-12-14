@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %} Bookings {% endblock title %}
+
+{% block body %}
+<style>
+/* #bookingfrm{
+    /* background:url( "/static/bag.jpg") no-repeat center center/cover; 
+    opacity: 0.7; 
+} */ 
+
+#submitbtn {
+        background-color: rgba(0, 0, 0, 0.904);
+        border: darkgray;
+        width: 22%;
+        
+    } 
+    #submitbtn:hover{
+        background-color: rgb(124, 124, 124);
+    }
+</style>
+
+<form id="bookingfrm" method="post">
+    {% csrf_token %}
+    <br>
+    <div class="container">
+        <div class="mb-3">
+            <label for="idname" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Your Name">
+        </div>
+
+        <div class="mb-3">
+            <label for="mobid" class="form-label">Mobile No. </label>
+            <input type="number" name="no" class="form-control" id="mobid" placeholder="Enter Your Mobile No.">
+        </div>
+
+        <div class="mb-3">
+            <label for="Idemail" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Enter Your Email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="addressid" class="form-label">Address</label>
+            <textarea class="form-control" name="address" id="address" rows="2" placeholder="Enter Address"></textarea>
+        </div>
+
+
+        <div class="col-md-6">
+            <label class="form-label">Available rooms </label>
+            <select class="form-select" name="room_type" id="room_type">
+                <option value="0">--Available rooms--</option>
+            </select>
+            <!-- <select name="group_id" id="group_id" class="multiselect_dropdown" onchange="get_subgroup()" multiple="multiple">
+        </select>                -->
+        </div>
+        <br>
+        <div class="mb-3">
+            <label class="form-label" for="checkin"> Check-in: </label>
+            <input type="date" id="checkin" name="checkin">
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="checkout">Check-out:</label>
+            <input type="date" id="checkout" name="checkout">
+        </div>
+        <br>
+        <button type="submit" id="submitbtn" class="btn btn-primary" onclick="addBooking()">Submit</button>
+        <br>
+    </div>
+</form>
+
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "{% url 'room_type_list' %}",
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                // alert(res);
+                res.room_dict.forEach(element => {
+                    // alert(element['id']);
+                    var row = "<option value=" + element['id'] + ">" + element['room_no'] + "</option>";
+                    $('#room_type').append(row);
+                });
+
+            }
+        });
+    });
+
+</script>
+
+<!-- <script>
+
+    $(document).ready(function () {
+        alert(res);
+        $.ajax({
+            url: "{% url 'room_type_list' %}",
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                res.room_dict.forEach(element => {
+                    var row = "<option value=" + element['id'] + ">" + element['room_type'] + "</option>";
+                    $('#room_typeid').append(row);
+                });
+
+            }
+        });
+    });
+
+
+</script> -->
+<script>
+    function addBooking() {
+        
+        var data = $('#bookingfrm').serialize();
+        // alert(data);
+        $.ajax({
+            url: "{% url 'addbookingsapi' %}",
+            data: data,
+            type: 'post',
+            // dataType: 'json',
+            success: function (res) {
+                alert(res);
+
+            }
+        });
+    }
+</script>
+{% endblock body %}
